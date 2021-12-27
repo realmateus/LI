@@ -1,0 +1,19 @@
+import pandas as pd
+from mpl_toolkits import mplot3d
+import matplotlib.pyplot as fig
+import numpy as ny
+import plotly.express as px
+import chart_studio
+import plotly.io as pio
+pio.renderers.default = 'iframe_connected'
+
+data = pd.read_excel('finL.xlsx',sheet_name='Planilha6')
+
+x=data['LIBERDADE ECONÔMICA']
+y=data['IDH']
+z=data['PIB PER CAPITA (USD)']
+country=['PAÍS']
+
+fig = px.scatter_3d(data, x=x, y=y, z=z, color=x, title='ÍNDICE DE LIBERDADE ECONÔMICA VS IDH VS PIB PER CAPITA',
+                    hover_data=country)
+fig.show()
